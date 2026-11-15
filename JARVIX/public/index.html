@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-anim="medium">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JARVIX — AI Command Center</title>
+  <meta name="description" content="JARVIX: a local-first AI command center with streaming chat, slash commands, voice and a secure server-side AI proxy.">
+  <meta name="theme-color" content="#05070d">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/motion.css">
+</head>
+<body data-core="idle" data-status="checking">
+  <a class="skip-link" href="#input">Skip to message box</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <canvas id="bgCanvas"></canvas>
+  </div>
+
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+      <div class="brand">
+        <span class="brand-logo" id="brandLogo" aria-hidden="true"></span>
+        <span class="brand-text"><b>JARVIX</b><small>AI COMMAND CENTER</small></span>
+        <button type="button" class="icon-btn sidebar-close" id="sidebarClose" aria-label="Close sidebar"><span class="ic-slot" data-icon="x"></span></button>
+      </div>
+
+      <button type="button" class="new-chat" id="newChatBtn"><span class="ic-slot" data-icon="plus"></span><span>New conversation</span><kbd>Alt N</kbd></button>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <span class="nav-ind" aria-hidden="true"></span>
+        <button type="button" class="nav-item active" data-view="chat" aria-current="page"><span class="ic-slot" data-icon="chat"></span><span class="nav-label">Chat</span></button>
+        <button type="button" class="nav-item" data-view="tasks"><span class="ic-slot" data-icon="tasks"></span><span class="nav-label">Tasks</span><span class="count" id="countTasks" hidden>0</span></button>
+        <button type="button" class="nav-item" data-view="notes"><span class="ic-slot" data-icon="note"></span><span class="nav-label">Notes</span><span class="count" id="countNotes" hidden>0</span></button>
+        <button type="button" class="nav-item" data-view="files"><span class="ic-slot" data-icon="file"></span><span class="nav-label">Files</span><span class="count" id="countFiles" hidden>0</span></button>
+        <button type="button" class="nav-item" data-view="history"><span class="ic-slot" data-icon="history"></span><span class="nav-label">History</span></button>
+        <button type="button" class="nav-item" data-view="activity"><span class="ic-slot" data-icon="activity"></span><span class="nav-label">Activity</span></button>
+      </nav>
+
+      <div class="side-section">
+        <label class="search" for="convSearch"><span class="ic-slot" data-icon="search" data-size="15"></span><input id="convSearch" type="search" placeholder="Search conversations" autocomplete="off" aria-label="Search conversations"></label>
+      </div>
+      <div class="conv-list" id="convList" role="list" aria-label="Conversations"></div>
+
+      <div class="side-foot">
+        <button type="button" class="sys-status" id="sysStatus" aria-label="Connection status — open AI settings">
+          <span class="dot" id="sysDot" data-state="checking"></span>
+          <span class="sys-text"><b id="sysTitle">Connecting…</b><small id="sysSub">Contacting server</small></span>
+        </button>
+        <button type="button" class="icon-btn" id="settingsBtn" aria-label="Settings" title="Settings (Ctrl+,)"><span class="ic-slot" data-icon="settings"></span></button>
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <button type="button" class="icon-btn" id="menuBtn" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="true" title="Toggle sidebar (Ctrl+B)"><span class="ic-slot" data-icon="menu"></span></button>
+        <canvas id="orbMini" class="orb-mini" data-keep-alive aria-hidden="true"></canvas>
+        <div class="top-title"><h1 id="pageTitle">New conversation</h1><span class="core-label" id="coreLabel" aria-live="polite">Ready</span></div>
+        <div class="top-actions">
+          <span class="pill" id="modePill" data-state="checking" role="status"><span class="dot" data-state="checking"></span><span id="modeText">…</span></span>
+          <button type="button" class="icon-btn" id="paletteBtn" aria-label="Command palette" title="Command palette (Ctrl+K)"><span class="ic-slot" data-icon="command"></span></button>
+          <button type="button" class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme (Alt+T)"></button>
+        </div>
+      </header>
+
+      <div class="views" id="views">
+        <section class="view view-chat" id="view-chat" aria-label="Chat">
+          <div class="chat-scroll" id="chatScroll" tabindex="-1">
+            <div class="welcome" id="welcome">
+              <canvas id="orbBig" class="orb-big" data-keep-alive aria-hidden="true"></canvas>
+              <span class="eyebrow" id="welcomeEyebrow">JARVIX online</span>
+              <h2 id="welcomeTitle">Hello.</h2>
+              <p class="welcome-sub" id="welcomeSub">Connecting to the core…</p>
+              <form class="name-ask" id="nameAsk" hidden>
+                <label for="nameInput">What should I call you?</label>
+                <input id="nameInput" type="text" maxlength="30" placeholder="Your name" autocomplete="given-name">
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              </form>
+              <div class="quick-cards" id="quickCards"></div>
+              <div class="suggest" id="suggest" aria-label="Suggested prompts"></div>
+            </div>
+            <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation" hidden></div>
+          </div>
+          <button type="button" class="to-latest" id="toLatest" hidden><span class="ic-slot" data-icon="down" data-size="14"></span> Latest</button>
+
+          <div class="composer-wrap" id="composerWrap">
+            <div class="slash-menu" id="slashMenu" role="listbox" aria-label="Commands"></div>
+            <div class="voice-dock" id="voiceDock" hidden role="status">
+              <canvas id="waveCanvas" data-keep-alive aria-hidden="true"></canvas>
+              <div class="vd-text"><b id="voiceLabel">Listening…</b><span id="voiceInterim"></span></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="voiceStop">Stop</button>
+            </div>
+            <form class="composer" id="composer" autocomplete="off">
+              <div class="tray" id="tray" hidden>
+                <button type="button" class="tray-btn" data-tray="cmd"><span class="ic-slot" data-icon="command" data-size="15"></span>Commands</button>
+                <button type="button" class="tray-btn" data-tray="paste"><span class="ic-slot" data-icon="copy" data-size="15"></span>Paste clipboard</button>
+                <button type="button" class="tray-btn" data-tray="file"><span class="ic-slot" data-icon="file" data-size="15"></span>Insert text file</button>
+                <label class="tray-select">Response length
+                  <select id="lenSelect"><option value="auto">Auto</option><option value="concise">Concise</option><option value="balanced">Balanced</option><option value="detailed">Detailed</option></select>
+                </label>
+                <input type="file" id="fileInput" hidden accept=".txt,.md,.csv,.json,.js,.ts,.py,.html,.css,.log,.xml,.yml,.yaml,.java,.c,.cpp,.go,.rs,.sh,.sql,text/*">
+              </div>
+              <div class="composer-row">
+                <button type="button" class="icon-btn" id="trayBtn" aria-label="More input options" aria-expanded="false"><span class="ic-slot" data-icon="plus"></span></button>
+                <textarea id="input" rows="1" placeholder="Message JARVIX… or type / for commands" aria-label="Message" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="slashMenu" spellcheck="true" maxlength="20000"></textarea>
+                <button type="button" class="icon-btn mic-btn" id="micBtn" aria-label="Start voice input" aria-pressed="false"><span class="ic-slot" data-icon="mic"></span></button>
+                <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message" disabled><span class="ic-slot" data-icon="send"></span></button>
+                <button type="button" class="stop-btn" id="stopGenBtn" aria-label="Stop generating" hidden><span class="ic-slot" data-icon="stop"></span></button>
+              </div>
+              <div class="composer-foot"><span id="modeNote"></span><span class="hint-keys"><kbd>Enter</kbd> send · <kbd>Shift</kbd>+<kbd>Enter</kbd> new line · <kbd>/</kbd> commands</span></div>
+            </form>
+          </div>
+        </section>
+        <section class="view" id="view-tasks" hidden aria-label="Tasks"></section>
+        <section class="view" id="view-notes" hidden aria-label="Notes"></section>
+        <section class="view" id="view-files" hidden aria-label="Files"></section>
+        <section class="view" id="view-history" hidden aria-label="History"></section>
+        <section class="view" id="view-activity" hidden aria-label="Activity"></section>
+      </div>
+    </main>
+  </div>
+
+  <div id="modalHost"></div>
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;background:#05070d;color:#e8edf7;font:16px sans-serif;text-align:center;padding:24px">JARVIX needs JavaScript to run.</p></noscript>
+
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="js/units.js"></script>
+  <script src="js/highlight.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/intent.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/orb.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/ui/core.js"></script>
+  <script src="js/ui/messages.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/ui/composer.js"></script>
+  <script src="js/ui/sidebar.js"></script>
+  <script src="js/ui/views.js"></script>
+  <script src="js/ui/settings.js"></script>
+  <script src="js/ui/palette.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

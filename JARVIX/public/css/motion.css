@@ -1,0 +1,56 @@
+/* JARVIX — keyframes and animation-level control. data-anim = off | low | medium | high (reduced-motion forces off). */
+@keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes paneIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+@keyframes msgIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes rowIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes codeIn { from { opacity: 0; transform: translateY(6px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
+@keyframes lineIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+@keyframes popIn { from { opacity: 0; transform: translateX(-50%) scale(.85); } to { opacity: 1; transform: translateX(-50%) scale(1); } }
+@keyframes pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: scale(1); } }
+@keyframes bounce { 0%, 80%, 100% { transform: translateY(0) scale(.7); opacity: .5; } 40% { transform: translateY(-7px) scale(1); opacity: 1; } }
+@keyframes caret { 50% { opacity: 0; } }
+@keyframes blink { 50% { opacity: .35; } }
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+@keyframes toastbar { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes micPulse { 0% { box-shadow: 0 0 0 0 rgb(244 63 94 / .55); } 70% { box-shadow: 0 0 0 14px rgb(244 63 94 / 0); } 100% { box-shadow: 0 0 0 0 rgb(244 63 94 / 0); } }
+@keyframes listenPulse { 0%, 100% { box-shadow: var(--shadow), 0 0 0 0 rgb(var(--a1-rgb) / .3); } 50% { box-shadow: var(--shadow), 0 0 0 7px rgb(var(--a1-rgb) / 0), 0 0 30px -6px rgb(var(--a1-rgb) / .6); } }
+@keyframes pulseOk { 0% { transform: scale(1); } 40% { transform: scale(1.025); } 100% { transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-5px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+@keyframes drift1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(5vmax, 4vmax); } }
+@keyframes drift2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-6vmax, -3vmax); } }
+@keyframes drift3 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-3vmax, 4vmax) scale(1.2); } }
+
+.ambient .b1 { animation: drift1 28s ease-in-out infinite; }
+.ambient .b2 { animation: drift2 34s ease-in-out infinite; }
+.ambient .b3 { animation: drift3 40s ease-in-out infinite; }
+
+/* press feedback ripple host */
+.btn, .send-btn, .new-chat { -webkit-tap-highlight-color: transparent; }
+
+/* LOW: keep short, essential transitions; no ambient, no looping decoration */
+:root[data-anim="low"] .ambient .blob,
+:root[data-anim="low"] .es-ic,
+:root[data-anim="low"] .pill[data-state="live"] .dot,
+:root[data-anim="low"] body[data-core="listening"] .composer { animation: none !important; }
+:root[data-anim="low"] .msg, :root[data-anim="low"] .row, :root[data-anim="low"] .note-card, :root[data-anim="low"] .codeblock, :root[data-anim="low"] .ln { animation-duration: .2s !important; animation-delay: 0s !important; }
+:root[data-anim="low"] .fc-card { transition-duration: .25s; }
+
+/* HIGH: a little extra life */
+:root[data-anim="high"] .msg { animation-duration: .7s; }
+:root[data-anim="high"] .quick-card:hover { transform: translateY(-6px) scale(1.01); }
+:root[data-anim="high"] .nav-item:hover { transform: translateX(3px); }
+:root[data-anim="high"] .brand-logo { animation: floaty 5s ease-in-out infinite; }
+
+/* OFF (and prefers-reduced-motion, which main applies as data-anim="off"): no motion at all */
+:root[data-anim="off"] *, :root[data-anim="off"] *::before, :root[data-anim="off"] *::after {
+  animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+}
+:root[data-anim="off"] .ambient .blob { animation: none !important; }
+:root[data-anim="off"] .typing i { animation: none !important; opacity: .8; }
+:root[data-anim="off"] .bubble.streaming::after { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .ambient .blob { animation: none !important; }
+}
