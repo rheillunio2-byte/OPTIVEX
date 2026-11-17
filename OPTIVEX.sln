@@ -1,0 +1,43 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPTIVEX.App", "src\OPTIVEX.App\OPTIVEX.App.csproj", "{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPTIVEX.Core", "src\OPTIVEX.Core\OPTIVEX.Core.csproj", "{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPTIVEX.Infrastructure", "src\OPTIVEX.Infrastructure\OPTIVEX.Infrastructure.csproj", "{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPTIVEX.Tests", "tests\OPTIVEX.Tests\OPTIVEX.Tests.csproj", "{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPTIVEX.Data", "src\OPTIVEX.Data\OPTIVEX.Data.csproj", "{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A105}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0B3E1-1C10-4D9C-9A1B-7F45F3C6A105}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
