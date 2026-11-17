@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="128" height="128" role="img" aria-label="OPTIVEX logo">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58D6F5"/><stop offset="1" stop-color="#398BFF"/></linearGradient></defs>
+  <path d="M50,4 L90,27 L90,73 L50,96 L10,73 L10,27 Z" fill="#101526" stroke="url(#g)" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M30,38 L50,66 L70,38" fill="none" stroke="#58D6F5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
