@@ -1,0 +1,254 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+ <!-- =====================================================================
+      OPTIVEX design system. Change colours and sizes HERE, not in pages.
+      Contrast (WCAG): muted text #9AA8BB on the card colour #192337 is about 6.4:1;
+      white on the primary button blue is about 4.6:1 or better.
+      ===================================================================== -->
+
+ <!-- ===== colours ===== -->
+ <Color x:Key="Bg">#101526</Color>
+ <Color x:Key="Sidebar">#0C1220</Color>
+ <Color x:Key="Panel">#192337</Color>
+ <Color x:Key="Panel2">#202D43</Color>
+ <Color x:Key="Line">#26344D</Color>
+ <Color x:Key="Accent">#398BFF</Color>
+ <Color x:Key="Cyan">#58D6F5</Color>
+ <Color x:Key="Primary1">#2D6FE8</Color>
+ <Color x:Key="Primary2">#2257D0</Color>
+ <Color x:Key="Danger">#C0392B</Color>
+
+ <SolidColorBrush x:Key="BgBrush" Color="{StaticResource Bg}"/>
+ <SolidColorBrush x:Key="SidebarBrush" Color="{StaticResource Sidebar}"/>
+ <SolidColorBrush x:Key="PanelBrush" Color="{StaticResource Panel}"/>
+ <SolidColorBrush x:Key="Panel2Brush" Color="{StaticResource Panel2}"/>
+ <SolidColorBrush x:Key="LineBrush" Color="{StaticResource Line}"/>
+ <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}"/>
+ <SolidColorBrush x:Key="CyanBrush" Color="{StaticResource Cyan}"/>
+ <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource Danger}"/>
+ <SolidColorBrush x:Key="Primary1Brush" Color="{StaticResource Primary1}"/>
+ <SolidColorBrush x:Key="TextBrush" Color="#F2F5FA"/>
+ <SolidColorBrush x:Key="TextSoftBrush" Color="#C5CFDC"/>
+ <SolidColorBrush x:Key="MutedBrush" Color="#9AA8BB"/>
+ <SolidColorBrush x:Key="WarnBrush" Color="#F5B942"/>
+ <SolidColorBrush x:Key="SelectionBrush" Color="#25406B"/>
+ <SolidColorBrush x:Key="HoverBrush" Color="#1F2D45"/>
+ <LinearGradientBrush x:Key="PrimaryGradient" StartPoint="0,0" EndPoint="1,1">
+  <GradientStop Color="{StaticResource Primary1}" Offset="0"/><GradientStop Color="{StaticResource Primary2}" Offset="1"/>
+ </LinearGradientBrush>
+ <LinearGradientBrush x:Key="BrandGradient" StartPoint="0,0" EndPoint="1,1">
+  <GradientStop Color="#58D6F5" Offset="0"/><GradientStop Color="#398BFF" Offset="1"/>
+ </LinearGradientBrush>
+
+ <!-- ===== typography ===== -->
+ <Style TargetType="TextBlock"><Setter Property="Foreground" Value="{StaticResource TextBrush}"/></Style>
+ <Style x:Key="PageTitle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}"><Setter Property="FontSize" Value="28"/><Setter Property="FontWeight" Value="Bold"/></Style>
+ <Style x:Key="SectionTitle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}"><Setter Property="FontSize" Value="16"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+ <Style x:Key="MetricLabel" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+  <Setter Property="Foreground" Value="{StaticResource MutedBrush}"/><Setter Property="FontSize" Value="10"/><Setter Property="FontWeight" Value="Bold"/>
+ </Style>
+ <Style x:Key="MetricValue" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}"><Setter Property="FontSize" Value="22"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+ <Style x:Key="Caption" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+  <Setter Property="Foreground" Value="{StaticResource MutedBrush}"/><Setter Property="FontSize" Value="11"/>
+ </Style>
+
+ <!-- ===== surfaces ===== -->
+ <Style x:Key="Card" TargetType="Border">
+  <Setter Property="Background" Value="{StaticResource PanelBrush}"/><Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+  <Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="14"/>
+ </Style>
+ <Style x:Key="CardInner" TargetType="Border">
+  <Setter Property="Background" Value="{StaticResource Panel2Brush}"/><Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+  <Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="12"/>
+ </Style>
+ <Style x:Key="Chip" TargetType="Border">
+  <Setter Property="Background" Value="{StaticResource PanelBrush}"/><Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+  <Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="10"/>
+ </Style>
+
+ <!-- ===== buttons: primary (default), secondary, danger, tile ===== -->
+ <Style TargetType="Button">
+  <Setter Property="Foreground" Value="White"/><Setter Property="Background" Value="{StaticResource PrimaryGradient}"/>
+  <Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="14,9"/>
+  <Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Cursor" Value="Hand"/>
+  <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+   <Grid>
+    <Border x:Name="Bg" Background="{TemplateBinding Background}" CornerRadius="9" Padding="{TemplateBinding Padding}" BorderBrush="Transparent" BorderThickness="2">
+     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
+    <Border x:Name="Hover" CornerRadius="9" Background="White" Opacity="0" IsHitTestVisible="False"/>
+   </Grid>
+   <ControlTemplate.Triggers>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Hover" Property="Opacity" Value="0.10"/></Trigger>
+    <Trigger Property="IsPressed" Value="True"><Setter TargetName="Hover" Property="Opacity" Value="0.18"/></Trigger>
+    <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Bg" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+    <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+ <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+  <Setter Property="Background" Value="{StaticResource Panel2Brush}"/>
+ </Style>
+ <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+  <Setter Property="Background" Value="{StaticResource DangerBrush}"/>
+ </Style>
+ <Style x:Key="TileButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+  <Setter Property="Padding" Value="16,14"/><Setter Property="HorizontalContentAlignment" Value="Left"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+   <Border x:Name="Bd" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="14" Padding="{TemplateBinding Padding}">
+    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+   </Border>
+   <ControlTemplate.Triggers>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/><Setter TargetName="Bd" Property="Background" Value="{StaticResource Panel2Brush}"/></Trigger>
+    <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+    <Trigger Property="IsPressed" Value="True"><Setter TargetName="Bd" Property="Opacity" Value="0.85"/></Trigger>
+    <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+
+ <!-- ===== text box ===== -->
+ <Style TargetType="TextBox">
+  <Setter Property="Background" Value="{StaticResource Panel2Brush}"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+  <Setter Property="CaretBrush" Value="White"/><Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+  <Setter Property="Padding" Value="8,6"/><Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox">
+   <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="8">
+    <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+   </Border>
+   <ControlTemplate.Triggers>
+    <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="#3A4A66"/></Trigger>
+    <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.5"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+ <Style x:Key="DarkTextBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}"/>
+
+ <!-- ===== check box ===== -->
+ <Style TargetType="CheckBox">
+  <Setter Property="Foreground" Value="{StaticResource TextBrush}"/><Setter Property="Cursor" Value="Hand"/>
+  <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
+   <StackPanel Orientation="Horizontal" Background="Transparent">
+    <Border x:Name="Box" Width="18" Height="18" CornerRadius="5" BorderThickness="1.5" BorderBrush="#4A5C7D" Background="{StaticResource Panel2Brush}" VerticalAlignment="Center">
+     <Path x:Name="Mark" Data="M4,9 L7.5,12.5 L14,5.5" Stroke="White" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Visibility="Collapsed"/>
+    </Border>
+    <ContentPresenter x:Name="Cp" Margin="8,0,0,0" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+   </StackPanel>
+   <ControlTemplate.Triggers>
+    <Trigger Property="HasContent" Value="False"><Setter TargetName="Cp" Property="Margin" Value="0"/></Trigger>
+    <Trigger Property="IsChecked" Value="True"><Setter TargetName="Box" Property="Background" Value="{StaticResource Primary1Brush}"/><Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource CyanBrush}"/><Setter TargetName="Mark" Property="Visibility" Value="Visible"/></Trigger>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+    <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource CyanBrush}"/><Setter TargetName="Box" Property="BorderThickness" Value="2.5"/></Trigger>
+    <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.5"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+
+ <!-- ===== scroll bars (thin, dark) ===== -->
+ <Style x:Key="ScrollThumb" TargetType="Thumb">
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Thumb">
+   <Border x:Name="T" CornerRadius="4" Background="#3A4A66" Margin="2"/>
+   <ControlTemplate.Triggers>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="T" Property="Background" Value="#58D6F5"/></Trigger>
+    <Trigger Property="IsDragging" Value="True"><Setter TargetName="T" Property="Background" Value="#58D6F5"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+ <Style x:Key="ScrollTrackButton" TargetType="RepeatButton">
+  <Setter Property="Focusable" Value="False"/><Setter Property="IsTabStop" Value="False"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="RepeatButton"><Border Background="Transparent"/></ControlTemplate></Setter.Value></Setter>
+ </Style>
+ <Style TargetType="ScrollBar">
+  <Setter Property="Width" Value="12"/><Setter Property="MinWidth" Value="12"/><Setter Property="Background" Value="Transparent"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar">
+   <Grid Background="Transparent">
+    <Track x:Name="PART_Track" IsDirectionReversed="True">
+     <Track.DecreaseRepeatButton><RepeatButton Style="{StaticResource ScrollTrackButton}" Command="ScrollBar.PageUpCommand"/></Track.DecreaseRepeatButton>
+     <Track.Thumb><Thumb Style="{StaticResource ScrollThumb}"/></Track.Thumb>
+     <Track.IncreaseRepeatButton><RepeatButton Style="{StaticResource ScrollTrackButton}" Command="ScrollBar.PageDownCommand"/></Track.IncreaseRepeatButton>
+    </Track>
+   </Grid>
+  </ControlTemplate></Setter.Value></Setter>
+  <Style.Triggers>
+   <Trigger Property="Orientation" Value="Horizontal">
+    <Setter Property="Width" Value="Auto"/><Setter Property="MinWidth" Value="0"/><Setter Property="Height" Value="12"/><Setter Property="MinHeight" Value="12"/>
+    <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar">
+     <Grid Background="Transparent">
+      <Track x:Name="PART_Track" IsDirectionReversed="False">
+       <Track.DecreaseRepeatButton><RepeatButton Style="{StaticResource ScrollTrackButton}" Command="ScrollBar.PageLeftCommand"/></Track.DecreaseRepeatButton>
+       <Track.Thumb><Thumb Style="{StaticResource ScrollThumb}"/></Track.Thumb>
+       <Track.IncreaseRepeatButton><RepeatButton Style="{StaticResource ScrollTrackButton}" Command="ScrollBar.PageRightCommand"/></Track.IncreaseRepeatButton>
+      </Track>
+     </Grid>
+    </ControlTemplate></Setter.Value></Setter>
+   </Trigger>
+  </Style.Triggers>
+ </Style>
+
+ <!-- ===== tooltip ===== -->
+ <Style TargetType="ToolTip">
+  <Setter Property="Background" Value="{StaticResource SidebarBrush}"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+  <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/><Setter Property="Padding" Value="10,6"/><Setter Property="MaxWidth" Value="360"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip">
+   <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="{TemplateBinding Padding}">
+    <ContentPresenter><ContentPresenter.Resources><Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="Foreground" Value="#F2F5FA"/><Setter Property="FontSize" Value="12"/></Style></ContentPresenter.Resources></ContentPresenter>
+   </Border>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+
+ <!-- ===== list items and data grids ===== -->
+ <Style x:Key="DarkListItem" TargetType="ListBoxItem">
+  <Setter Property="Cursor" Value="Hand"/><Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ListBoxItem">
+   <Border x:Name="Bd" CornerRadius="9" Padding="10,8" Margin="0,2" Background="Transparent" BorderBrush="Transparent" BorderThickness="1"><ContentPresenter/></Border>
+   <ControlTemplate.Triggers>
+    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="{StaticResource HoverBrush}"/></Trigger>
+    <Trigger Property="IsSelected" Value="True"><Setter TargetName="Bd" Property="Background" Value="{StaticResource SelectionBrush}"/><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+    <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+   </ControlTemplate.Triggers>
+  </ControlTemplate></Setter.Value></Setter>
+ </Style>
+
+ <Style TargetType="DataGrid">
+  <Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+  <Setter Property="BorderThickness" Value="0"/><Setter Property="GridLinesVisibility" Value="None"/><Setter Property="HeadersVisibility" Value="Column"/>
+  <Setter Property="RowBackground" Value="Transparent"/><Setter Property="CanUserResizeRows" Value="False"/>
+ </Style>
+ <Style TargetType="DataGridColumnHeader">
+  <Setter Property="Background" Value="{StaticResource Panel2Brush}"/><Setter Property="Foreground" Value="{StaticResource MutedBrush}"/>
+  <Setter Property="Padding" Value="12,9"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="FontSize" Value="11"/>
+  <Setter Property="BorderThickness" Value="0"/>
+ </Style>
+ <Style TargetType="DataGridRow">
+  <Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+  <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Style.Triggers>
+   <Trigger Property="IsMouseOver" Value="True"><Setter Property="Background" Value="{StaticResource HoverBrush}"/></Trigger>
+   <Trigger Property="IsSelected" Value="True"><Setter Property="Background" Value="{StaticResource SelectionBrush}"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/></Trigger>
+  </Style.Triggers>
+ </Style>
+ <Style TargetType="DataGridCell">
+  <Setter Property="Foreground" Value="{StaticResource TextBrush}"/><Setter Property="Background" Value="Transparent"/>
+  <Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="8,6"/><Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+  <Style.Triggers>
+   <Trigger Property="IsSelected" Value="True"><Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource TextBrush}"/><Setter Property="BorderBrush" Value="Transparent"/></Trigger>
+  </Style.Triggers>
+ </Style>
+ <Style x:Key="DarkHeader" TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"/>
+ <Style x:Key="DarkCell" TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}"/>
+
+ <!-- ===== page icons (24x24 line icons; stroke colour is set where they are used) ===== -->
+ <Geometry x:Key="Icon.Overview">M4,4 H10 V10 H4 Z M14,4 H20 V10 H14 Z M4,14 H10 V20 H4 Z M14,14 H20 V20 H14 Z</Geometry>
+ <Geometry x:Key="Icon.Health">M3,12 H7 L9.5,5 L14.5,19 L17,12 H21</Geometry>
+ <Geometry x:Key="Icon.Storage">M4,14 H20 V19 H4 Z M5.5,14 L8,5 H16 L18.5,14 M7.5,16.5 H7.6 M10,16.5 H10.1</Geometry>
+ <Geometry x:Key="Icon.Performance">M4.5,17 A8.5,8.5 0 1 1 19.5,17 M12,13.5 L16,8.5</Geometry>
+ <Geometry x:Key="Icon.Gaming">M7,8 H17 A4,4 0 0 1 21,12 V13 A3,3 0 0 1 15.6,14.5 L14.5,13 H9.5 L8.4,14.5 A3,3 0 0 1 3,13 V12 A4,4 0 0 1 7,8 Z M7.5,10.5 V13.5 M6,12 H9 M16,11.5 H16.1 M18,13 H18.1</Geometry>
+ <Geometry x:Key="Icon.Compatibility">M3,12 A9,9 0 1 1 21,12 A9,9 0 1 1 3,12 Z M8,12.5 L11,15.5 L16,9</Geometry>
+ <Geometry x:Key="Icon.Laptop">M5,6 H19 V15 H5 Z M2.5,18.5 H21.5</Geometry>
+ <Geometry x:Key="Icon.Reports">M6,3 H14 L19,8 V21 H6 Z M14,3 V8 H19 M9,13 H16 M9,17 H16</Geometry>
+ <Geometry x:Key="Icon.Settings">M4,7 H20 M4,12 H20 M4,17 H20 M9,5 V9 M15,10 V14 M8,15 V19</Geometry>
+</ResourceDictionary>
