@@ -1,0 +1,117 @@
+<Window x:Class="OPTIVEX.App.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:conv="clr-namespace:OPTIVEX.App.Converters"
+ Title="OPTIVEX" Height="840" Width="1360" MinHeight="640" MinWidth="880"
+ Background="{StaticResource BgBrush}" WindowStartupLocation="CenterScreen"
+ FontFamily="Segoe UI Variable Text, Segoe UI" AutomationProperties.Name="OPTIVEX">
+ <Window.Resources><conv:PageIconConverter x:Key="PageIcon"/></Window.Resources>
+
+ <!-- Keyboard: Ctrl+1 ... Ctrl+9 jump to a page -->
+ <Window.InputBindings>
+  <KeyBinding Gesture="Ctrl+D1" Command="{Binding NavigateToIndexCommand}" CommandParameter="0"/>
+  <KeyBinding Gesture="Ctrl+D2" Command="{Binding NavigateToIndexCommand}" CommandParameter="1"/>
+  <KeyBinding Gesture="Ctrl+D3" Command="{Binding NavigateToIndexCommand}" CommandParameter="2"/>
+  <KeyBinding Gesture="Ctrl+D4" Command="{Binding NavigateToIndexCommand}" CommandParameter="3"/>
+  <KeyBinding Gesture="Ctrl+D5" Command="{Binding NavigateToIndexCommand}" CommandParameter="4"/>
+  <KeyBinding Gesture="Ctrl+D6" Command="{Binding NavigateToIndexCommand}" CommandParameter="5"/>
+  <KeyBinding Gesture="Ctrl+D7" Command="{Binding NavigateToIndexCommand}" CommandParameter="6"/>
+  <KeyBinding Gesture="Ctrl+D8" Command="{Binding NavigateToIndexCommand}" CommandParameter="7"/>
+  <KeyBinding Gesture="Ctrl+D9" Command="{Binding NavigateToIndexCommand}" CommandParameter="8"/>
+ </Window.InputBindings>
+
+ <Grid>
+  <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+
+  <Grid Grid.Row="0">
+   <Grid.ColumnDefinitions><ColumnDefinition x:Name="SidebarColumn" Width="240"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+
+   <!-- ============ sidebar ============ -->
+   <Border Grid.Column="0" Background="{StaticResource SidebarBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,1,0" Padding="12,18,12,14">
+    <DockPanel>
+     <!-- brand: hexagon ring with a "V" chevron -->
+     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="4,0,0,24">
+      <Viewbox Width="36" Height="36" AutomationProperties.Name="OPTIVEX logo"><Canvas Width="100" Height="100">
+       <Path Data="M50,4 L90,27 L90,73 L50,96 L10,73 L10,27 Z" StrokeThickness="7" StrokeLineJoin="Round" Stroke="{StaticResource BrandGradient}"/>
+       <Path Data="M30,38 L50,66 L70,38" Stroke="{StaticResource CyanBrush}" StrokeThickness="9" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+      </Canvas></Viewbox>
+      <StackPanel x:Name="BrandText" Margin="10,0,0,0" VerticalAlignment="Center">
+       <TextBlock Text="OPTIVEX" FontSize="22" FontWeight="Bold" Foreground="{StaticResource CyanBrush}"/>
+       <TextBlock Text="Take Control of Your PC." Style="{StaticResource Caption}" FontSize="9"/>
+      </StackPanel>
+     </StackPanel>
+
+     <Border x:Name="SidebarNote" DockPanel.Dock="Bottom" Style="{StaticResource CardInner}" Padding="12" Margin="0,14,0,0">
+      <StackPanel>
+       <TextBlock Text="RELEASE CANDIDATE" Style="{StaticResource MetricLabel}" Foreground="{StaticResource CyanBrush}"/>
+       <TextBlock Text="Local-first diagnostics. No telemetry. Nothing changes without your confirmation." Style="{StaticResource Caption}" FontSize="10" TextWrapping="Wrap" Margin="0,4,0,0"/>
+      </StackPanel>
+     </Border>
+
+     <ListBox ItemsSource="{Binding Pages}" SelectedItem="{Binding CurrentPage, Mode=TwoWay}" Background="Transparent" BorderThickness="0"
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutomationProperties.Name="Main navigation">
+      <ListBox.ItemContainerStyle>
+       <Style TargetType="ListBoxItem">
+        <Setter Property="Cursor" Value="Hand"/><Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ListBoxItem">
+         <Border x:Name="Bd" CornerRadius="10" Margin="0,2" Background="Transparent" BorderBrush="Transparent" BorderThickness="1"
+                 ToolTip="{Binding Title}" AutomationProperties.Name="{Binding Title}">
+          <Grid>
+           <Border x:Name="Bar" Width="3" CornerRadius="2" HorizontalAlignment="Left" Margin="0,9" Background="{StaticResource BrandGradient}" Visibility="Collapsed"/>
+           <StackPanel x:Name="Row" Orientation="Horizontal" Margin="16,10,10,10">
+            <Viewbox Width="20" Height="20">
+             <Path x:Name="Ic" Width="24" Height="24" Data="{Binding Title, Converter={StaticResource PageIcon}}" Fill="Transparent"
+                   Stroke="{StaticResource MutedBrush}" StrokeThickness="1.8" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            </Viewbox>
+            <TextBlock x:Name="Label" Text="{Binding Title}" Margin="12,0,0,0" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="{StaticResource TextSoftBrush}"/>
+           </StackPanel>
+          </Grid>
+         </Border>
+         <ControlTemplate.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="{StaticResource HoverBrush}"/><Setter TargetName="Label" Property="Foreground" Value="{StaticResource TextBrush}"/></Trigger>
+          <Trigger Property="IsSelected" Value="True">
+           <Setter TargetName="Bd" Property="Background" Value="{StaticResource SelectionBrush}"/><Setter TargetName="Bar" Property="Visibility" Value="Visible"/>
+           <Setter TargetName="Ic" Property="Stroke" Value="{StaticResource CyanBrush}"/><Setter TargetName="Label" Property="Foreground" Value="{StaticResource TextBrush}"/>
+          </Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CyanBrush}"/></Trigger>
+          <!-- compact sidebar: icon only, centred -->
+          <DataTrigger Binding="{Binding DataContext.IsCompactSidebar, RelativeSource={RelativeSource AncestorType=Window}}" Value="True">
+           <Setter TargetName="Label" Property="Visibility" Value="Collapsed"/>
+           <Setter TargetName="Row" Property="HorizontalAlignment" Value="Center"/>
+           <Setter TargetName="Row" Property="Margin" Value="0,10"/>
+          </DataTrigger>
+         </ControlTemplate.Triggers>
+        </ControlTemplate></Setter.Value></Setter>
+       </Style>
+      </ListBox.ItemContainerStyle>
+     </ListBox>
+    </DockPanel>
+   </Border>
+
+   <!-- ============ page ============ -->
+   <Grid Grid.Column="1" Margin="28,24,28,12">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+    <StackPanel Grid.Row="0" Margin="0,0,0,18">
+     <TextBlock Text="{Binding CurrentPage.Title}" Style="{StaticResource PageTitle}"/>
+     <TextBlock Text="{Binding CurrentPage.Subtitle}" Style="{StaticResource Caption}" FontSize="13" TextWrapping="Wrap" MaxWidth="940" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+    </StackPanel>
+    <ContentControl x:Name="ContentHost" Grid.Row="1" Content="{Binding CurrentPage}" IsTabStop="False">
+     <ContentControl.RenderTransform><TranslateTransform x:Name="PageSlide" Y="0"/></ContentControl.RenderTransform>
+    </ContentControl>
+   </Grid>
+  </Grid>
+
+  <!-- ============ status footer ============ -->
+  <Border Grid.Row="1" Background="{StaticResource SidebarBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0" Padding="16,6">
+   <DockPanel>
+    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+     <Border Style="{StaticResource Chip}" Padding="9,2" Margin="0,0,10,0" ToolTip="{Binding PrivilegeTip}" AutomationProperties.Name="Privilege level">
+      <TextBlock Text="{Binding PrivilegeText}" Style="{StaticResource Caption}" FontSize="10"/>
+     </Border>
+     <TextBlock Text="{Binding VersionText}" Style="{StaticResource Caption}" FontSize="10" VerticalAlignment="Center"/>
+    </StackPanel>
+    <TextBlock x:Name="FooterNote" Text="🔒  Everything stays on this PC · Ctrl+1 to Ctrl+9 switch pages" Style="{StaticResource Caption}" FontSize="10" VerticalAlignment="Center"/>
+   </DockPanel>
+  </Border>
+ </Grid>
+</Window>
