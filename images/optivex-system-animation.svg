@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 392" width="1000" height="392" role="img" aria-labelledby="sys-title sys-desc">
+  <title id="sys-title">Illustration of the OPTIVEX system health monitor</title>
+  <desc id="sys-desc">An illustrative animation: four status tiles for CPU, memory, storage and temperature, and a live-style chart. It shows no real data.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070C18"/><stop offset="1" stop-color="#101437"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#58D6F5"/><stop offset="0.55" stop-color="#398BFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#58D6F5" stop-opacity="0.28"/><stop offset="1" stop-color="#58D6F5" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+    <clipPath id="chart"><rect x="55" y="206" width="890" height="126"/></clipPath>
+    <style>
+      text { font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif; }
+      .static { display: none; }
+      @media (prefers-reduced-motion: reduce) { .motion { display: none; } .static { display: inline; } }
+    </style>
+  </defs>
+  <rect x="0.75" y="0.75" width="998.5" height="390.5" rx="20" fill="url(#bg)" stroke="#1B2A4A" stroke-width="1.5"/>
+  <text x="39" y="40" font-size="13" font-weight="700" letter-spacing="3" fill="#58D6F5">SYSTEM HEALTH</text>
+  <text x="961" y="40" font-size="12" text-anchor="end" fill="#8FA0B8">Illustrative animation</text>
+
+  <!-- status tiles -->
+    <g class="motion">
+      <rect x="39" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="55" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">CPU</text>
+      <text x="55" y="114" font-size="13" fill="#C5CFDC">usage</text>
+      <circle cx="241" cy="88" r="4" fill="#3DDC97"><animate attributeName="opacity" values="1;0.25;1" dur="2.0s" repeatCount="indefinite"/></circle>
+      <rect x="55" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="55" y="144" width="64" height="10" rx="5" fill="url(#brand)"><animate attributeName="width" values="64;92;64" dur="5.4s" repeatCount="indefinite"/></rect>
+    </g>
+    <g class="motion">
+      <rect x="273" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="289" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">MEMORY</text>
+      <text x="289" y="114" font-size="13" fill="#C5CFDC">in use</text>
+      <circle cx="475" cy="88" r="4" fill="#3DDC97"><animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/></circle>
+      <rect x="289" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="289" y="144" width="120" height="10" rx="5" fill="url(#brand)"><animate attributeName="width" values="120;98;134;120" dur="7.2s" repeatCount="indefinite"/></rect>
+    </g>
+    <g class="motion">
+      <rect x="507" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="523" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">STORAGE</text>
+      <text x="523" y="114" font-size="13" fill="#C5CFDC">used</text>
+      <circle cx="709" cy="88" r="4" fill="#3DDC97"><animate attributeName="opacity" values="1;0.25;1" dur="2.8s" repeatCount="indefinite"/></circle>
+      <rect x="523" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="523" y="144" width="96" height="10" rx="5" fill="url(#brand)"><animate attributeName="width" values="96;102;96" dur="9.0s" repeatCount="indefinite"/></rect>
+    </g>
+    <g class="motion">
+      <rect x="741" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="757" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">TEMPERATURE</text>
+      <text x="757" y="114" font-size="13" fill="#C5CFDC">where supported</text>
+      <circle cx="943" cy="88" r="4" fill="#3DDC97"><animate attributeName="opacity" values="1;0.25;1" dur="3.2s" repeatCount="indefinite"/></circle>
+      <rect x="757" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="757" y="144" width="52" height="10" rx="5" fill="url(#brand)"><animate attributeName="width" values="52;70;52" dur="6.3s" repeatCount="indefinite"/></rect>
+    </g>
+    <g class="static">
+      <rect x="39" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="55" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">CPU</text>
+      <text x="55" y="114" font-size="13" fill="#C5CFDC">usage</text>
+      <circle cx="241" cy="88" r="4" fill="#3DDC97"></circle>
+      <rect x="55" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="55" y="144" width="64" height="10" rx="5" fill="url(#brand)"></rect>
+    </g>
+    <g class="static">
+      <rect x="273" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="289" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">MEMORY</text>
+      <text x="289" y="114" font-size="13" fill="#C5CFDC">in use</text>
+      <circle cx="475" cy="88" r="4" fill="#3DDC97"></circle>
+      <rect x="289" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="289" y="144" width="120" height="10" rx="5" fill="url(#brand)"></rect>
+    </g>
+    <g class="static">
+      <rect x="507" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="523" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">STORAGE</text>
+      <text x="523" y="114" font-size="13" fill="#C5CFDC">used</text>
+      <circle cx="709" cy="88" r="4" fill="#3DDC97"></circle>
+      <rect x="523" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="523" y="144" width="96" height="10" rx="5" fill="url(#brand)"></rect>
+    </g>
+    <g class="static">
+      <rect x="741" y="62" width="220" height="112" rx="14" fill="#0F1A33" stroke="#1B2A4A"/>
+      <text x="757" y="92" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA0B8">TEMPERATURE</text>
+      <text x="757" y="114" font-size="13" fill="#C5CFDC">where supported</text>
+      <circle cx="943" cy="88" r="4" fill="#3DDC97"></circle>
+      <rect x="757" y="144" width="188" height="10" rx="5" fill="#17274A"/>
+      <rect x="757" y="144" width="52" height="10" rx="5" fill="url(#brand)"></rect>
+    </g>
+
+  <!-- chart -->
+  <rect x="39" y="190" width="922" height="156" rx="14" fill="#0B1427" stroke="#1B2A4A"/>
+  <g fill="none" stroke="#58D6F5" stroke-opacity="0.07"><path d="M55 206 V332"/><path d="M144 206 V332"/><path d="M233 206 V332"/><path d="M322 206 V332"/><path d="M411 206 V332"/><path d="M500 206 V332"/><path d="M589 206 V332"/><path d="M678 206 V332"/><path d="M767 206 V332"/><path d="M856 206 V332"/><path d="M945 206 V332"/><path d="M55 206 H945"/><path d="M55 237.5 H945"/><path d="M55 269 H945"/><path d="M55 300.5 H945"/><path d="M55 332 H945"/></g>
+  <g clip-path="url(#chart)">
+    <path d="M55.0 250.1 L66.3 243.4 L77.5 242.9 L88.8 234.7 L100.1 236.1 L111.3 233.7 L122.6 231.5 L133.9 236.6 L145.1 235.6 L156.4 242.5 L167.7 244.1 L178.9 249.4 L190.2 257.5 L201.5 266.1 L212.7 265.7 L224.0 271.1 L235.3 278.3 L246.5 283.9 L257.8 283.0 L269.1 282.4 L280.3 287.0 L291.6 278.4 L302.8 282.9 L314.1 275.7 L325.4 271.4 L336.6 267.8 L347.9 265.9 L359.2 266.9 L370.4 259.3 L381.7 260.6 L393.0 260.1 L404.2 257.9 L415.5 260.3 L426.8 258.4 L438.0 261.3 L449.3 266.1 L460.6 274.1 L471.8 276.6 L483.1 280.3 L494.4 286.9 L505.6 289.9 L516.9 291.9 L528.2 298.2 L539.4 298.7 L550.7 295.1 L562.0 296.6 L573.2 293.7 L584.5 293.0 L595.8 287.2 L607.0 278.2 L618.3 277.8 L629.6 264.6 L640.8 260.6 L652.1 257.3 L663.4 247.0 L674.6 245.0 L685.9 237.7 L697.2 240.2 L708.4 239.6 L719.7 238.1 L730.9 241.7 L742.2 239.6 L753.5 245.9 L764.7 249.2 L776.0 253.6 L787.3 257.5 L798.5 265.4 L809.8 270.7 L821.1 270.9 L832.3 275.7 L843.6 273.2 L854.9 279.7 L866.1 279.7 L877.4 281.8 L888.7 278.8 L899.9 272.2 L911.2 270.1 L922.5 269.2 L933.7 260.6 L945.0 261.0 L945 330 L55 330 Z" fill="url(#area)"/>
+    <path d="M55.0 289.4 L66.3 290.6 L77.5 291.8 L88.8 295.3 L100.1 294.6 L111.3 296.0 L122.6 297.4 L133.9 299.7 L145.1 298.1 L156.4 299.7 L167.7 300.4 L178.9 301.7 L190.2 301.6 L201.5 301.8 L212.7 299.9 L224.0 300.1 L235.3 299.7 L246.5 301.0 L257.8 300.9 L269.1 298.2 L280.3 298.0 L291.6 298.0 L302.8 297.8 L314.1 298.5 L325.4 298.8 L336.6 298.0 L347.9 297.4 L359.2 299.0 L370.4 299.2 L381.7 300.3 L393.0 302.1 L404.2 301.9 L415.5 302.0 L426.8 303.0 L438.0 303.9 L449.3 302.6 L460.6 305.7 L471.8 305.8 L483.1 306.5 L494.4 306.5 L505.6 305.3 L516.9 305.2 L528.2 304.1 L539.4 305.2 L550.7 302.8 L562.0 302.0 L573.2 301.4 L584.5 300.0 L595.8 299.2 L607.0 296.8 L618.3 295.0 L629.6 293.8 L640.8 291.9 L652.1 290.9 L663.4 288.2 L674.6 289.0 L685.9 286.7 L697.2 283.8 L708.4 282.8 L719.7 281.9 L730.9 281.0 L742.2 279.6 L753.5 281.3 L764.7 281.5 L776.0 279.9 L787.3 280.3 L798.5 279.6 L809.8 280.5 L821.1 282.2 L832.3 283.1 L843.6 286.2 L854.9 285.7 L866.1 286.9 L877.4 291.4 L888.7 291.9 L899.9 292.5 L911.2 295.5 L922.5 295.6 L933.7 298.7 L945.0 301.6" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.9"/>
+    <path d="M55.0 250.1 L66.3 243.4 L77.5 242.9 L88.8 234.7 L100.1 236.1 L111.3 233.7 L122.6 231.5 L133.9 236.6 L145.1 235.6 L156.4 242.5 L167.7 244.1 L178.9 249.4 L190.2 257.5 L201.5 266.1 L212.7 265.7 L224.0 271.1 L235.3 278.3 L246.5 283.9 L257.8 283.0 L269.1 282.4 L280.3 287.0 L291.6 278.4 L302.8 282.9 L314.1 275.7 L325.4 271.4 L336.6 267.8 L347.9 265.9 L359.2 266.9 L370.4 259.3 L381.7 260.6 L393.0 260.1 L404.2 257.9 L415.5 260.3 L426.8 258.4 L438.0 261.3 L449.3 266.1 L460.6 274.1 L471.8 276.6 L483.1 280.3 L494.4 286.9 L505.6 289.9 L516.9 291.9 L528.2 298.2 L539.4 298.7 L550.7 295.1 L562.0 296.6 L573.2 293.7 L584.5 293.0 L595.8 287.2 L607.0 278.2 L618.3 277.8 L629.6 264.6 L640.8 260.6 L652.1 257.3 L663.4 247.0 L674.6 245.0 L685.9 237.7 L697.2 240.2 L708.4 239.6 L719.7 238.1 L730.9 241.7 L742.2 239.6 L753.5 245.9 L764.7 249.2 L776.0 253.6 L787.3 257.5 L798.5 265.4 L809.8 270.7 L821.1 270.9 L832.3 275.7 L843.6 273.2 L854.9 279.7 L866.1 279.7 L877.4 281.8 L888.7 278.8 L899.9 272.2 L911.2 270.1 L922.5 269.2 L933.7 260.6 L945.0 261.0" fill="none" stroke="#58D6F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="motion">
+      <path d="M55.0 250.1 L66.3 243.4 L77.5 242.9 L88.8 234.7 L100.1 236.1 L111.3 233.7 L122.6 231.5 L133.9 236.6 L145.1 235.6 L156.4 242.5 L167.7 244.1 L178.9 249.4 L190.2 257.5 L201.5 266.1 L212.7 265.7 L224.0 271.1 L235.3 278.3 L246.5 283.9 L257.8 283.0 L269.1 282.4 L280.3 287.0 L291.6 278.4 L302.8 282.9 L314.1 275.7 L325.4 271.4 L336.6 267.8 L347.9 265.9 L359.2 266.9 L370.4 259.3 L381.7 260.6 L393.0 260.1 L404.2 257.9 L415.5 260.3 L426.8 258.4 L438.0 261.3 L449.3 266.1 L460.6 274.1 L471.8 276.6 L483.1 280.3 L494.4 286.9 L505.6 289.9 L516.9 291.9 L528.2 298.2 L539.4 298.7 L550.7 295.1 L562.0 296.6 L573.2 293.7 L584.5 293.0 L595.8 287.2 L607.0 278.2 L618.3 277.8 L629.6 264.6 L640.8 260.6 L652.1 257.3 L663.4 247.0 L674.6 245.0 L685.9 237.7 L697.2 240.2 L708.4 239.6 L719.7 238.1 L730.9 241.7 L742.2 239.6 L753.5 245.9 L764.7 249.2 L776.0 253.6 L787.3 257.5 L798.5 265.4 L809.8 270.7 L821.1 270.9 L832.3 275.7 L843.6 273.2 L854.9 279.7 L866.1 279.7 L877.4 281.8 L888.7 278.8 L899.9 272.2 L911.2 270.1 L922.5 269.2 L933.7 260.6 L945.0 261.0" fill="none" stroke="#DFF8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="46 1100" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="1146" to="0" dur="6s" repeatCount="indefinite"/></path>
+      <path d="M55.0 289.4 L66.3 290.6 L77.5 291.8 L88.8 295.3 L100.1 294.6 L111.3 296.0 L122.6 297.4 L133.9 299.7 L145.1 298.1 L156.4 299.7 L167.7 300.4 L178.9 301.7 L190.2 301.6 L201.5 301.8 L212.7 299.9 L224.0 300.1 L235.3 299.7 L246.5 301.0 L257.8 300.9 L269.1 298.2 L280.3 298.0 L291.6 298.0 L302.8 297.8 L314.1 298.5 L325.4 298.8 L336.6 298.0 L347.9 297.4 L359.2 299.0 L370.4 299.2 L381.7 300.3 L393.0 302.1 L404.2 301.9 L415.5 302.0 L426.8 303.0 L438.0 303.9 L449.3 302.6 L460.6 305.7 L471.8 305.8 L483.1 306.5 L494.4 306.5 L505.6 305.3 L516.9 305.2 L528.2 304.1 L539.4 305.2 L550.7 302.8 L562.0 302.0 L573.2 301.4 L584.5 300.0 L595.8 299.2 L607.0 296.8 L618.3 295.0 L629.6 293.8 L640.8 291.9 L652.1 290.9 L663.4 288.2 L674.6 289.0 L685.9 286.7 L697.2 283.8 L708.4 282.8 L719.7 281.9 L730.9 281.0 L742.2 279.6 L753.5 281.3 L764.7 281.5 L776.0 279.9 L787.3 280.3 L798.5 279.6 L809.8 280.5 L821.1 282.2 L832.3 283.1 L843.6 286.2 L854.9 285.7 L866.1 286.9 L877.4 291.4 L888.7 291.9 L899.9 292.5 L911.2 295.5 L922.5 295.6 L933.7 298.7 L945.0 301.6" fill="none" stroke="#E4D9FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40 1100" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="1140" to="0" dur="8s" repeatCount="indefinite"/></path>
+      <rect x="55" y="206" width="2" height="126" fill="#58D6F5" opacity="0.5"><animate attributeName="x" from="55" to="945" dur="6s" repeatCount="indefinite"/></rect>
+    </g>
+  </g>
+  <g font-size="12" fill="#C5CFDC">
+    <circle cx="68" cy="364" r="4" fill="#58D6F5"/><text x="80" y="368">CPU usage</text>
+    <circle cx="176" cy="364" r="4" fill="#8B5CF6"/><text x="188" y="368">Memory in use</text>
+  </g>
+  <text x="961" y="368" font-size="11" text-anchor="end" fill="#8FA0B8">OPTIVEX labels unavailable readings as unavailable and never invents values.</text>
+</svg>

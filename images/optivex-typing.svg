@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 64" width="900" height="64" role="img" aria-labelledby="typing-title">
+  <title id="typing-title">OPTIVEX: Live system health monitoring / Safe storage cleanup, with a preview first / Recommendations from your real readings / Compare your PC with published game requirements / Local-first. No telemetry. You stay in control.</title>
+  <defs>
+    <linearGradient id="pill" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0A1124"/><stop offset="1" stop-color="#140F36"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#58D6F5"/><stop offset="0.55" stop-color="#398BFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+    <clipPath id="c0"><rect x="66" y="14" width="382.8" height="36"><animate attributeName="width" values="0;382.8;382.8;0;0" keyTimes="0;0.07222;0.17222;0.175;1" dur="18.0s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c1"><rect x="66" y="14" width="0" height="36"><animate attributeName="width" values="0;0;0;554.4;554.4;0;0" keyTimes="0;0.19722;0.2;0.27222;0.37222;0.375;1" dur="18.0s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c2"><rect x="66" y="14" width="0" height="36"><animate attributeName="width" values="0;0;0;514.8;514.8;0;0" keyTimes="0;0.39722;0.4;0.47222;0.57222;0.575;1" dur="18.0s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c3"><rect x="66" y="14" width="0" height="36"><animate attributeName="width" values="0;0;0;633.6;633.6;0;0" keyTimes="0;0.59722;0.6;0.67222;0.77222;0.775;1" dur="18.0s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c4"><rect x="66" y="14" width="0" height="36"><animate attributeName="width" values="0;0;0;620.4;620.4;0;0" keyTimes="0;0.79722;0.8;0.87222;0.97222;0.975;1" dur="18.0s" repeatCount="indefinite"/></rect></clipPath>
+    <style>
+      text { font-family: 'Cascadia Code', 'JetBrains Mono', Consolas, 'SF Mono', Menlo, 'Courier New', monospace; }
+      .static { display: none; }
+      @media (prefers-reduced-motion: reduce) { .motion { display: none; } .static { display: inline; } }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="898" height="62" rx="31" fill="url(#pill)" stroke="url(#edge)" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#58D6F5">&gt;</text>
+  <g class="motion">
+    <text x="66" y="40" font-size="22" textLength="382.8" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9" clip-path="url(#c0)">Live system health monitoring</text>
+    <g opacity="1"><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;0.07222;0.17222;0.175;1" dur="18.0s" repeatCount="indefinite"/><g><animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/><rect x="66" y="17" width="2.6" height="28" rx="1.3" fill="#58D6F5"><animate attributeName="x" values="66;448.8;448.8;66;66" keyTimes="0;0.07222;0.17222;0.175;1" dur="18.0s" repeatCount="indefinite"/></rect></g></g>
+    <text x="66" y="40" font-size="22" textLength="554.4" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9" clip-path="url(#c1)">Safe storage cleanup, with a preview first</text>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.19722;0.2;0.27222;0.37222;0.375;1" dur="18.0s" repeatCount="indefinite"/><g><animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/><rect x="66" y="17" width="2.6" height="28" rx="1.3" fill="#58D6F5"><animate attributeName="x" values="66;66;66;620.4;620.4;66;66" keyTimes="0;0.19722;0.2;0.27222;0.37222;0.375;1" dur="18.0s" repeatCount="indefinite"/></rect></g></g>
+    <text x="66" y="40" font-size="22" textLength="514.8" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9" clip-path="url(#c2)">Recommendations from your real readings</text>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.39722;0.4;0.47222;0.57222;0.575;1" dur="18.0s" repeatCount="indefinite"/><g><animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/><rect x="66" y="17" width="2.6" height="28" rx="1.3" fill="#58D6F5"><animate attributeName="x" values="66;66;66;580.8;580.8;66;66" keyTimes="0;0.39722;0.4;0.47222;0.57222;0.575;1" dur="18.0s" repeatCount="indefinite"/></rect></g></g>
+    <text x="66" y="40" font-size="22" textLength="633.6" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9" clip-path="url(#c3)">Compare your PC with published game requirements</text>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.59722;0.6;0.67222;0.77222;0.775;1" dur="18.0s" repeatCount="indefinite"/><g><animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/><rect x="66" y="17" width="2.6" height="28" rx="1.3" fill="#58D6F5"><animate attributeName="x" values="66;66;66;699.6;699.6;66;66" keyTimes="0;0.59722;0.6;0.67222;0.77222;0.775;1" dur="18.0s" repeatCount="indefinite"/></rect></g></g>
+    <text x="66" y="40" font-size="22" textLength="620.4" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9" clip-path="url(#c4)">Local-first. No telemetry. You stay in control.</text>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.79722;0.8;0.87222;0.97222;0.975;1" dur="18.0s" repeatCount="indefinite"/><g><animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/><rect x="66" y="17" width="2.6" height="28" rx="1.3" fill="#58D6F5"><animate attributeName="x" values="66;66;66;686.4;686.4;66;66" keyTimes="0;0.79722;0.8;0.87222;0.97222;0.975;1" dur="18.0s" repeatCount="indefinite"/></rect></g></g>
+  </g>
+  <g class="static"><text x="66" y="40" font-size="22" textLength="382.8" lengthAdjust="spacingAndGlyphs" fill="#E6EEF9">Live system health monitoring</text></g>
+  <circle cx="868" cy="32" r="5" fill="#58D6F5" opacity="0.85"/>
+  <g class="motion"><circle cx="868" cy="32" r="5" fill="#58D6F5"><animate attributeName="opacity" values="1;0.1;1" dur="2s" repeatCount="indefinite"/></circle></g>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-labelledby="banner-title banner-desc">
+  <title id="banner-title">OPTIVEX</title>
+  <desc id="banner-desc">OPTIVEX banner: Optimize Smarter. Monitor Better. Maintain Safely. A Windows PC optimization and monitoring application.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060A14"/><stop offset="0.55" stop-color="#0D1630"/><stop offset="1" stop-color="#1A1245"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58D6F5"/><stop offset="0.55" stop-color="#398BFF"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="brandV" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#58D6F5"/><stop offset="1" stop-color="#398BFF"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58D6F5" stop-opacity="0"/><stop offset="0.5" stop-color="#58D6F5" stop-opacity="0.16"/><stop offset="1" stop-color="#58D6F5" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.17" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#398BFF" stop-opacity="0.38"/><stop offset="1" stop-color="#398BFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.88" cy="0.2" r="0.5">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.28"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#58D6F5" stroke-opacity="0.06"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <clipPath id="frame"><rect width="1200" height="340" rx="18"/></clipPath>
+    <style>
+      text { font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif; }
+      .static { display: none; }
+      @media (prefers-reduced-motion: reduce) { .motion { display: none; } .static { display: inline; } }
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="340" fill="url(#bg)"/>
+    <rect width="1200" height="340" fill="url(#glow)"/>
+    <rect width="1200" height="340" fill="url(#glow2)"/>
+    <rect width="1200" height="340" fill="url(#grid)"/>
+
+    <!-- static circuit traces (always visible) -->
+    <g fill="none" stroke="#58D6F5" stroke-opacity="0.22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 292 H120 L150 262 H330 L352 284 H560"/>
+      <path d="M640 40 H760 L790 70 H1010 L1034 46 H1200"/>
+      <path d="M0 52 H90 L112 30 H250"/>
+      <path d="M700 312 H880 L902 290 H1200"/>
+    </g>
+    <g fill="#58D6F5" fill-opacity="0.5">
+      <circle cx="560" cy="284" r="3.5"/><circle cx="640" cy="40" r="3.5"/><circle cx="250" cy="30" r="3.5"/><circle cx="700" cy="312" r="3.5"/>
+    </g>
+
+    <!-- animated layer -->
+    <g class="motion">
+      <g fill="none" stroke="#58D6F5" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 120">
+        <path d="M0 292 H120 L150 262 H330 L352 284 H560"><animate attributeName="stroke-dashoffset" from="134" to="0" dur="5s" repeatCount="indefinite"/></path>
+        <path d="M640 40 H760 L790 70 H1010 L1034 46 H1200"><animate attributeName="stroke-dashoffset" from="134" to="0" dur="6.5s" repeatCount="indefinite"/></path>
+        <path d="M700 312 H880 L902 290 H1200"><animate attributeName="stroke-dashoffset" from="134" to="0" dur="7.5s" repeatCount="indefinite"/></path>
+      </g>
+      <g fill="#58D6F5">
+        <circle cx="560" cy="284" r="3.5"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
+        <circle cx="640" cy="40" r="3.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
+        <circle cx="700" cy="312" r="3.5"><animate attributeName="opacity" values="1;0.25;1" dur="2.8s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- drifting particles -->
+      <g fill="#8EE6FF">
+        <circle cx="330" cy="330" r="1.8" opacity="0.7"><animate attributeName="cy" values="340;-10" dur="9s" repeatCount="indefinite"/></circle>
+        <circle cx="520" cy="330" r="1.4" opacity="0.5"><animate attributeName="cy" values="340;-10" dur="12s" begin="-4s" repeatCount="indefinite"/></circle>
+        <circle cx="700" cy="330" r="2.2" opacity="0.6"><animate attributeName="cy" values="340;-10" dur="10s" begin="-7s" repeatCount="indefinite"/></circle>
+        <circle cx="1090" cy="330" r="1.6" opacity="0.6"><animate attributeName="cy" values="340;-10" dur="11s" begin="-2s" repeatCount="indefinite"/></circle>
+        <circle cx="190" cy="330" r="1.5" opacity="0.5"><animate attributeName="cy" values="340;-10" dur="13s" begin="-9s" repeatCount="indefinite"/></circle>
+        <circle cx="880" cy="330" r="1.3" opacity="0.5"><animate attributeName="cy" values="340;-10" dur="8s" begin="-5s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- scanning beam -->
+      <rect x="-160" y="0" width="160" height="340" fill="url(#beam)">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="1400 0" dur="7s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- logo -->
+    <g transform="translate(46 80)">
+      <g class="motion"><circle cx="86" cy="86" r="74" fill="#398BFF" opacity="0.55" filter="url(#soft)"><animate attributeName="opacity" values="0.35;0.7;0.35" dur="3.2s" repeatCount="indefinite"/></circle></g>
+      <g transform="translate(6 6) scale(1.6)">
+        <path d="M50 4 L90 27 L90 73 L50 96 L10 73 L10 27 Z" fill="#0A1124" fill-opacity="0.65" stroke="url(#brandV)" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M30 38 L50 66 L70 38" fill="none" stroke="#58D6F5" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- text -->
+    <text x="238" y="170" font-size="92" font-weight="800" letter-spacing="9" fill="url(#brand)">OPTIVEX</text>
+    <text x="242" y="220" font-size="27" font-weight="600" fill="#D5DEEB">Optimize Smarter. Monitor Better. Maintain Safely.</text>
+    <text x="242" y="256" font-size="17" fill="#8FA0B8" letter-spacing="0.6">Windows PC optimization and monitoring</text>
+
+    <!-- monitor widget (animated) -->
+    <g class="motion" transform="translate(880 82)">
+      <circle cx="62" cy="68" r="52" fill="none" stroke="#17274A" stroke-width="11"/>
+      <circle cx="62" cy="68" r="52" fill="none" stroke="url(#brand)" stroke-width="11" stroke-linecap="round" stroke-dasharray="230 327" transform="rotate(-90 62 68)">
+        <animate attributeName="stroke-dasharray" values="190 327;250 327;190 327" dur="6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="62" cy="68" r="5" fill="#58D6F5"><animate attributeName="r" values="4;7;4" dur="2.2s" repeatCount="indefinite"/></circle>
+      <g font-size="12" fill="#8FA0B8" letter-spacing="1.2" font-weight="600">
+        <text x="150" y="34">CPU</text><text x="150" y="82">RAM</text><text x="150" y="130">DISK</text>
+      </g>
+      <g>
+        <rect x="150" y="42" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="42" width="84" height="8" rx="4" fill="url(#brand)"><animate attributeName="width" values="60;104;60" dur="5.2s" repeatCount="indefinite"/></rect>
+        <rect x="150" y="90" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="90" width="96" height="8" rx="4" fill="url(#brand)"><animate attributeName="width" values="96;72;110;96" dur="7s" repeatCount="indefinite"/></rect>
+        <rect x="150" y="138" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="138" width="58" height="8" rx="4" fill="url(#brand)"><animate attributeName="width" values="58;66;58" dur="8s" repeatCount="indefinite"/></rect>
+      </g>
+    </g>
+
+    <!-- monitor widget (static copy, shown when the viewer prefers reduced motion) -->
+    <g class="static" transform="translate(880 82)">
+      <circle cx="62" cy="68" r="52" fill="none" stroke="#17274A" stroke-width="11"/>
+      <circle cx="62" cy="68" r="52" fill="none" stroke="url(#brand)" stroke-width="11" stroke-linecap="round" stroke-dasharray="230 327" transform="rotate(-90 62 68)"/>
+      <circle cx="62" cy="68" r="5" fill="#58D6F5"/>
+      <g font-size="12" fill="#8FA0B8" letter-spacing="1.2" font-weight="600">
+        <text x="150" y="34">CPU</text><text x="150" y="82">RAM</text><text x="150" y="130">DISK</text>
+      </g>
+      <g>
+        <rect x="150" y="42" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="42" width="84" height="8" rx="4" fill="url(#brand)"/>
+        <rect x="150" y="90" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="90" width="96" height="8" rx="4" fill="url(#brand)"/>
+        <rect x="150" y="138" width="130" height="8" rx="4" fill="#17274A"/>
+        <rect x="150" y="138" width="58" height="8" rx="4" fill="url(#brand)"/>
+      </g>
+    </g>
+
+    <!-- pulse line along the bottom -->
+    <path d="M0 322 H240 L262 322 L276 300 L294 342 L312 316 L322 322 H640 L662 322 L676 304 L692 338 L706 318 L714 322 H1200" fill="none" stroke="#58D6F5" stroke-opacity="0.25" stroke-width="1.5" stroke-linejoin="round"/>
+    <g class="motion">
+      <path d="M0 322 H240 L262 322 L276 300 L294 342 L312 316 L322 322 H640 L662 322 L676 304 L692 338 L706 318 L714 322 H1200" fill="none" stroke="#58D6F5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="90 1310">
+        <animate attributeName="stroke-dashoffset" from="1400" to="0" dur="6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <rect x="0.75" y="0.75" width="1198.5" height="338.5" rx="17.5" fill="none" stroke="url(#brand)" stroke-opacity="0.45" stroke-width="1.5"/>
+</svg>
